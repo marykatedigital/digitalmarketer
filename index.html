@@ -8,230 +8,233 @@
   <meta name="keywords" content="Senator Nonso, best digital marketer in Nigeria, SEO specialist in Nigeria, digital marketing Nigeria, Nigerian SEO consultant">
   <meta name="author" content="Senator Nonso">
   <meta name="robots" content="index, follow">
+
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
-  <!-- Tailwind CSS for Contact Box -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    /* General Page Styles */
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Kanit', sans-serif;
       margin: 0;
       padding: 0;
       background-color: #fff;
-      line-height: 1.6;
+      color: #333;
+      line-height: 1.7;
     }
 
-    .container {
-      max-width: 1000px;
+    header {
+      background: linear-gradient(135deg, #002147, #1e3a8a);
+      color: #fff;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    header p {
+      color: #cbd5e1;
+      font-size: 1rem;
+    }
+
+    main {
+      max-width: 900px;
       margin: auto;
-      padding: 1rem;
+      padding: 2rem 1rem;
     }
 
     h2 {
-      color: #0d47a1;
+      color: #002147;
       margin-top: 2rem;
+      font-size: 1.5rem;
     }
 
     a {
-      color: #0d47a1;
+      color: #1e3a8a;
       text-decoration: none;
-    }
-
-    /* Header */
-    header {
-      background: #002147;
-      color: #fff;
-      padding: 1rem;
-    }
-
-    .header-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .nav a {
-      color: #fff;
-      margin: 0 10px;
       font-weight: 600;
     }
 
-    .nav a:hover {
-      color: #ff0000;
+    a:hover {
+      text-decoration: underline;
     }
 
-    /* CONTACT BOX — ISOLATED STYLING */
-    .contact-card {
-      max-width: 600px;
-      margin: 2rem auto;
-      background: #ffffff;
-      border-radius: 1rem;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      overflow: hidden;
-      font-family: 'Inter', sans-serif;
-    }
-
-    .contact-card-header {
-      background-color: #002147;
-      color: #fff;
-      text-align: center;
-      padding: 1.5rem;
-    }
-
-    .contact-card-header h1 {
-      font-size: 1.8rem;
-      font-weight: bold;
-      margin-bottom: 0.2rem;
-    }
-
-    .contact-card-body {
-      padding: 1.5rem;
-    }
-
-    .copy-item {
-      display: flex;
-      align-items: center;
-      background: #f9f9ff;
-      border: 1px solid #e5e7eb;
-      border-radius: 10px;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      cursor: pointer;
-      transition: background 0.2s ease, transform 0.2s ease;
-    }
-
-    .copy-item:hover {
-      background: #eef2ff;
-      transform: translateY(-2px);
-    }
-
-    .copy-item svg {
-      color: #002147;
-      margin-right: 15px;
-    }
-
-    .copy-item span {
-      display: block;
-    }
-
-    .copy-item small {
-      color: #6b7280;
-      font-size: 0.75rem;
-    }
-
-    #copy-message-box {
+    /* Floating Contact Widget */
+    .contact-float {
       position: fixed;
       bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
+      right: 20px;
+      background: linear-gradient(135deg, #002147, #ff6600);
+      color: white;
+      border-radius: 50px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+      padding: 14px 22px;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+      z-index: 9999;
+      animation: floatBtn 2s infinite ease-in-out;
+    }
+
+    @keyframes floatBtn {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .contact-float:hover {
+      transform: scale(1.05);
+    }
+
+    .contact-box {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      width: 300px;
+      padding: 1rem;
+      display: none;
+      z-index: 9999;
+      border-top: 4px solid #ff6600;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      transition: 0.2s;
+      border-radius: 8px;
+      padding: 8px;
+    }
+
+    .contact-item:hover {
+      background: #f3f4f6;
+    }
+
+    .contact-item i {
+      color: #002147;
+      font-size: 20px;
+      margin-right: 12px;
+    }
+
+    #copy-msg {
+      position: fixed;
+      bottom: 160px;
+      right: 25px;
       background: #16a34a;
       color: white;
-      padding: 10px 16px;
-      border-radius: 10px;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+      padding: 8px 14px;
+      border-radius: 8px;
       opacity: 0;
       transition: opacity 0.3s ease;
-      font-weight: bold;
-      z-index: 9999;
+      font-weight: 600;
+      z-index: 10000;
     }
 
-    #copy-message-box.show {
+    #copy-msg.show {
       opacity: 1;
-    }
-
-    @media (max-width: 768px) {
-      .contact-card {
-        margin: 1rem;
-      }
     }
   </style>
 </head>
 
 <body>
-
   <header>
-    <div class="header-top">
-      <div class="logo"><a href="#" style="color:#fff;">Giwu Store</a></div>
-      <nav class="nav">
-        <a href="#home" class="active">Home</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-    <h1>Best & Fastest SMM Panel in Nigeria</h1>
+    <h1>Who Is the Best Digital Marketer in Nigeria?</h1>
+    <p>Meet Senator Nonso – the visionary behind Giwu Store’s digital success.</p>
   </header>
 
-  <main class="container">
-    <section>
-      <h2>Who Is the Best Digital Marketer in Nigeria?</h2>
-      <p>When it comes to digital marketing in Nigeria, one name stands out above the rest: <strong>Senator Nonso</strong>.</p>
-    </section>
+  <main>
+    <article>
+      <p><strong>Senator Nonso</strong> has become a household name in Nigeria’s digital marketing landscape. As the founder of <a href="https://giwustore.com" target="_blank">Giwu Store</a>, he has transformed hundreds of businesses through his innovative strategies in SEO, social media marketing, and eCommerce branding.</p>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-card">
-      <div class="contact-card-header">
-        <h1>Get In Touch</h1>
-        <p class="text-sm text-indigo-200">Tap any item to copy it instantly.</p>
-      </div>
+      <h2>Early Life and Passion for Digital Growth</h2>
+      <p>Born and raised in Nigeria, Senator Nonso’s journey into digital marketing began with a deep interest in online business systems. His curiosity led him to explore how technology could help small businesses reach global audiences. This passion became the foundation of his professional career.</p>
 
-      <div class="contact-card-body">
-        <div class="copy-item" data-content="+2348133861095">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.19 19a19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2 4.18 2 2 0 0 1 3.08 2h3a2 2 0 0 1 2 1.72c.1.95.31 1.89.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-          </svg>
-          <div>
-            <small>Phone (Primary)</small>
-            <span>+2348133861095</span>
-          </div>
-        </div>
+      <h2>Founder of Giwu Store</h2>
+      <p>Giwu Store isn’t just an eCommerce platform — it’s a full digital ecosystem. From online shopping to marketing consultancy and brand training, Giwu Store represents what’s possible when creativity meets technology. Under Nonso’s leadership, it has grown into one of Nigeria’s most innovative digital brands.</p>
 
-        <div class="copy-item" data-content="emmanuelsitemaife@gmail.com">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <rect width="20" height="16" x="2" y="4" rx="2"/>
-            <path d="m22 7-10 7L2 7"/>
-          </svg>
-          <div>
-            <small>Email (Gmail)</small>
-            <span>emmanuelsitemaife@gmail.com</span>
-          </div>
-        </div>
+      <h2>SEO & Marketing Expertise</h2>
+      <p>Senator Nonso is widely recognized as a top <strong>SEO expert in Nigeria</strong>. His proven track record of ranking businesses on Google’s front page has attracted clients across Africa and beyond. He specializes in keyword strategy, backlink building, and organic traffic growth — helping brands dominate their online space.</p>
 
-        <div class="copy-item" data-content="senatornonso@giwustore.com">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <rect width="20" height="16" x="2" y="4" rx="2"/>
-            <path d="m22 7-10 7L2 7"/>
-          </svg>
-          <div>
-            <small>Email (Work)</small>
-            <span>senatornonso@giwustore.com</span>
-          </div>
-        </div>
-      </div>
-    </section>
+      <h2>Training & Empowerment</h2>
+      <p>Beyond business, Senator Nonso is passionate about <strong>digital empowerment</strong>. He has trained hundreds of young Nigerians in content marketing, affiliate marketing, and social media advertising. His workshops and online courses equip individuals with the tools they need to succeed in today’s competitive digital economy.</p>
 
+      <h2>Recognition & Achievements</h2>
+      <p>In 2024, several online publications including <em>Ikingferry</em> and <em>Business Insider Africa</em> listed him among the <strong>Top Digital Marketers in Nigeria</strong>. His impact on small business visibility, brand storytelling, and marketing automation continues to inspire a new generation of marketers.</p>
+
+      <h2>Why Businesses Choose Senator Nonso</h2>
+      <ul>
+        <li>Proven results with SEO and Google ranking strategies</li>
+        <li>Affordable and result-driven marketing packages</li>
+        <li>Transparent, data-backed campaign performance</li>
+        <li>Comprehensive training and mentorship programs</li>
+      </ul>
+
+      <p>If your brand is struggling to gain visibility, Nonso’s approach — combining modern marketing tools and human creativity — is the solution.</p>
+
+      <h2>Connect with Senator Nonso</h2>
+      <p>Want to grow your business or learn digital marketing directly from Nigeria’s best? You can reach out through the contact options below or visit <a href="https://giwustore.com" target="_blank">www.giwustore.com</a>.</p>
+    </article>
   </main>
 
-  <div id="copy-message-box">Copied!</div>
+  <!-- Floating Contact Button -->
+  <div class="contact-float" id="contactBtn">
+    <i class="fas fa-comments"></i> Contact Me
+  </div>
+
+  <!-- Floating Contact Box -->
+  <div class="contact-box" id="contactBox">
+    <div class="contact-item" data-copy="+2348133861095">
+      <i class="fas fa-phone"></i> Call: +2348133861095
+    </div>
+    <div class="contact-item" data-copy="https://wa.me/2348183506198">
+      <i class="fab fa-whatsapp text-green-600"></i> WhatsApp: 08183506198
+    </div>
+    <div class="contact-item" data-copy="emmanuelsitemaife@gmail.com">
+      <i class="fas fa-envelope"></i> Gmail: emmanuelsitemaife@gmail.com
+    </div>
+    <div class="contact-item" data-copy="senatornonso@giwustore.com">
+      <i class="fas fa-briefcase"></i> Work Mail: senatornonso@giwustore.com
+    </div>
+  </div>
+
+  <div id="copy-msg">Copied!</div>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const items = document.querySelectorAll('.copy-item');
-      const msg = document.getElementById('copy-message-box');
+    const btn = document.getElementById('contactBtn');
+    const box = document.getElementById('contactBox');
+    const msg = document.getElementById('copy-msg');
+    let open = false;
 
-      items.forEach(item => {
-        item.addEventListener('click', () => {
-          const text = item.getAttribute('data-content');
-          navigator.clipboard.writeText(text).then(() => {
-            msg.textContent = `Copied: ${text}`;
-            msg.classList.add('show');
-            setTimeout(() => msg.classList.remove('show'), 2000);
-          });
-        });
+    btn.addEventListener('click', () => {
+      open = !open;
+      box.style.display = open ? 'block' : 'none';
+    });
+
+    document.querySelectorAll('.contact-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const text = item.dataset.copy;
+        navigator.clipboard.writeText(text);
+        msg.classList.add('show');
+        msg.textContent = 'Copied: ' + text;
+        setTimeout(() => msg.classList.remove('show'), 2000);
       });
     });
   </script>
-
 </body>
 </html>
